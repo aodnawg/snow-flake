@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+.row {
+  width: 256px;
+  height: 256px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes spin1 {
+  from {
+    transform: translateY(-15vh) rotate3d(1, 0, 1, 0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh) rotate3d(1, 0, 1, 360deg);
+    opacity: 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@keyframes spin2 {
+  from {
+    transform: translateY(-15vw) rotate3d(1, 2, 0, 0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh) rotate3d(1, 2, 1, 360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes spin3 {
+  from {
+    transform: translateY(-15vw) rotate3d(1, 1, 2, 0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh) rotate3d(1, 1, 2, 360deg);
+    opacity: 0;
+  }
+}
+
+.spin-anim1 {
+  animation-name: spin1;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.spin-anim2 {
+  animation-name: spin2;
+  animation-timing-function: linear;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+.spin-anim3 {
+  animation-name: spin3;
+  animation-timing-function: linear;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+}
+
+.app {
+  background-color: #000;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.snow-flake-container {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.snow-flake-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  transform: translateY(-30vw);
+}
+
+.snow-flake-row__img {
+  width: 100%;
+  height: auto;
+}
+
+.snow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 10vh;
+  height: 80vh;
+}
+
+.snow-grid__item {
+  height: 20vh;
 }
